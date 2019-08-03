@@ -1,0 +1,436 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="晓风残月的博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+    <meta name="keywords" content="java,多线程">
+
+
+    <meta name="description" content="多线程概述基础概念进程和线程
+进程是程序运行资源分配的最小单位
+
+​        进程是操作系统进行资源分配的最小单位,其中资源包括:CPU、内存空间、磁盘IO等,同一进程中的多条线程共享该进...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>java多线程-01 | 晓风残月的博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="晓风残月的博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(./img/banner.png)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='晓风残月'>
+            <img src="img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 学而时习之,不亦说乎 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">晓风残月的博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/JAVA/"><i class="fa "></i>JAVA</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/架构/"><i class="fa "></i>架构</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/片段/"><i class="fa "></i>片段</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="java多线程-01">
+            
+	            java多线程-01
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="categories/java/">java</a> <a class="category-link" href="categories/java/多线程/">多线程</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="tags/java/">java</a> <a class="tag-link" href="tags/多线程/">多线程</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/08/03</span>
+        </span>
+        
+            <span class="fa-wrap">
+                <i class="fa fa-eye"></i>
+                <span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="多线程概述"><a href="#多线程概述" class="headerlink" title="多线程概述"></a>多线程概述</h2><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><h3 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h3><blockquote>
+<p><strong>进程是程序运行资源分配的最小单位</strong></p>
+</blockquote>
+<p>​        进程是操作系统进行资源分配的最小单位,其中资源包括:CPU、内存空间、磁盘IO等,同一进程中的多条线程共享该进程中的全部系统资源,而进程和进程之间是相互独立的。进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动,进程是系统进行资源分配和调度的一个独立单位。</p>
+<p>​        进程是程序在计算机上的一次执行活动。当你运行一个程序,你就启动了一个进程。显然,程序是死的、静态的,进程是活的、动态的。进程可以分为系统进程和用户进程。凡是用于完成操作系统的各种功能的进程就是系统进程,它们就是处于运行状态下的操作系统本身,用户进程就是所有由你启动的进程。</p>
+<blockquote>
+<p> <strong>线程是CPU调度的最小单位,必须依赖于进程而存在</strong></p>
+</blockquote>
+<p>​        线程是进程的一个实体,是CPU调度和分派的基本单位,它是比进程更小的、能独立运行的基本单位。线程自己基本上不拥有系统资源,只拥有一点在运行中必不可少的资源(如程序计数器,一组寄存器和栈),但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源。</p>
+<blockquote>
+<p><strong>线程无处不在</strong></p>
+</blockquote>
+<p>​        任何一个程序都必须要创建线程,特别是Java不管任何程序都必须启动一个main函数的主线程; Java Web开发里面的定时任务、定时器、JSP和 Servlet、异步消息处理机制,远程访问接口RM等,任何一个监听事件, onclick的触发事件等都离不开线程和并发的知识。</p>
+<h3 id="CPU核心数和线程数的关系"><a href="#CPU核心数和线程数的关系" class="headerlink" title="CPU核心数和线程数的关系"></a>CPU核心数和线程数的关系</h3><p>​        <strong>多核心</strong>:也指单芯片多处理器( Chip Multiprocessors,简称CMP),CMP是由美国斯坦福大学提出的,其思想是将大规模并行处理器中的SMP(对称多处理器)集成到同一芯片内,各个处理器并行执行不同的进程。这种依靠多个CPU同时并行地运行程序是实现超高速计算的一个重要方向,称为并行处理</p>
+<p><strong>多线程</strong>: Simultaneous Multithreading.简称SMT.让同一个处理器上的多个线程同步执行并共享处理器的执行资源。</p>
+<p><strong>核心数、线程数</strong>:目前主流CPU都是多核的。增加核心数目就是为了增加线程数,因为操作系统是通过线程来执行任务的,一般情况下它们是1:1对应关系,也就是说四核CPU一般拥有四个线程。但 Intel引入超线程技术后,使核心数与线程数形成1:2的关系</p>
+<p><img src="../images%5Ccomputer_core_num.png" alt></p>
+<h3 id="CPU时间片轮转机制"><a href="#CPU时间片轮转机制" class="headerlink" title="CPU时间片轮转机制"></a>CPU时间片轮转机制</h3><p>​        我们平时在开发的时候，感觉并没有受cpu核心数的限制，想启动线程就启动线程，哪怕是在单核CPU上，为什么？这是因为操作系统提供了一种CPU时间片轮转机制。</p>
+<p>​        时间片轮转调度是一种最古老、最简单、最公平且使用最广的算法,又称RR调度。每个进程被分配一个时间段,称作它的时间片,即该进程允许运行的时间。</p>
+<p>百度百科对CPU时间片轮转机制原理解释如下:</p>
+<p>​        如果在时间片结束时进程还在运行,则CPU将被剥夺并分配给另一个进程。如果进程在时间片结束前阻塞或结来,则CPU当即进行切换。调度程序所要做的就是维护一张就绪进程列表,当进程用完它的时间片后,它被移到队列的末尾</p>
+<p>​        时间片轮转调度中唯一有趣的一点是时间片的长度。从一个进程切换到另一个进程是需要定时间的,包括保存和装入寄存器值及内存映像,更新各种表格和队列等。假如进程切( processwitch),有时称为上下文切换( context switch),需要5ms,再假设时间片设为20ms,则在做完20ms有用的工作之后,CPU将花费5ms来进行进程切换。CPU时间的20%被浪费在了管理开销上了。</p>
+<p>​        为了提高CPU效率,我们可以将时间片设为5000ms。这时浪费的时间只有0.1%。但考虑到在一个分时系统中,如果有10个交互用户几乎同时按下回车键,将发生什么情况?假设所有其他进程都用足它们的时间片的话,最后一个不幸的进程不得不等待5s才获得运行机会。多数用户无法忍受一条简短命令要5才能做出响应,同样的问题在一台支持多道程序的个人计算机上也会发</p>
+<p>​        结论可以归结如下:时间片设得太短会导致过多的进程切换,降低了CPU效率:而设得太长又可能引起对短的交互请求的响应变差。将时间片设为100ms通常是一个比较合理的折衷。</p>
+<p>​        在CPU死机的情况下,其实大家不难发现当运行一个程序的时候把CPU给弄到了100%再不重启电脑的情况下,其实我们还是有机会把它KILL掉的,我想也正是因为这种机制的缘故。</p>
+<h3 id="澄清并行和并发"><a href="#澄清并行和并发" class="headerlink" title="澄清并行和并发"></a>澄清并行和并发</h3><p>​        我们举个例子,如果有条高速公路A上面并排有8条车道,那么最大的<strong>并行</strong>车辆就是8辆此条高速公路A同时并排行走的车辆小于等于8辆的时候,车辆就可以并行运行。CPU也是这个原理,一个CPU相当于一个高速公路A,核心数或者线程数就相当于并排可以通行的车道;而多个CPU就相当于并排有多条高速公路,而每个高速公路并排有多个车道。</p>
+<p>当谈论<strong>并发</strong>的时候一定要加个单位时间,也就是说单位时间内并发量是多少?离开了单位时间其实是没有意义的。</p>
+<p>​        俗话说,一心不能二用,这对计算机也一样,原则上一个CPU只能分配给一个进程,以便运行这个进程。我们通常使用的计算机中只有一个CPU,也就是说只有一颗心,要让它一心多用同时运行多个进程,就必须使用并发技术。实现并发技术相当复杂,最容易理解的是“时间片轮转进程调度算法”。</p>
+<p>综合来说：</p>
+<p>​        <strong>并发</strong>:指应用能够交替执行不同的任务,比如单CPU核心下执行多线程并非是同时执行多个任务,如果你开两个线程执行,就是在你几乎不可能察觉到的速度不断去切换这两个任务,已达到”同时执行效果”,其实并不是的,只是计算机的速度太快,我们无法察觉到而已.</p>
+<p>​        <strong>并行</strong>:指应用能够同时执行不同的任务,例:吃饭的时候可以边吃饭边打电话,这两件事情可以同时执行</p>
+<p>两者区别:一个是交替执行,一个是同时执行.</p>
+<p><img src="../images%5Cconcurrent_and_parallel.jpg" alt></p>
+<h3 id="高并发编程的意义、好处和注意事项"><a href="#高并发编程的意义、好处和注意事项" class="headerlink" title="高并发编程的意义、好处和注意事项"></a>高并发编程的意义、好处和注意事项</h3><p>​        由于多核多线程的CPU的诞生,多线程、高并发的编程越来越受重视和关注。多线程可以给程序带来如下好处。</p>
+<h4 id="1-充分利用CPU的资源"><a href="#1-充分利用CPU的资源" class="headerlink" title="1. 充分利用CPU的资源"></a>1. 充分利用CPU的资源</h4><p>​        从上面的CPU的介绍,可以看的出来,现在市面上没有CPU的内核不使用多线程并发机制的,特别是服务器还不止一个CPU,如果还是使用单线程的技术做思路,明显就out了。因为程序的基本调度单元是线程,并且一个线程也只能在一个CPU的一个核的一个线程跑,如果你是个i3的CPU的话,最差也是双核心4线程的运算能力:如果是一个线程的程序的话,那是要浪费3/4的CPU性能:如果设计一个多线程的程序的话,那它就可以同时在多个CPU的多个核的多个线程上跑,可以充分地利用CPU,减少CPU的空闲时间,发挥它的运算能力,提高并发量。</p>
+<p>​        就像我们平时坐地铁一样,很多人坐长线地铁的时候都在认真看书,而不是为了坐地铁而坐地铁,到家了再去看书,这样你的时间就相当于有了两倍。这就是为什么有些人时间很充裕,而有些人老是说没时间的一个原因,工作也是这样,有的时候可以并发地去做几件事情,充分利用我们的时间,CPU也是一样,也要充分利用。</p>
+<h4 id="2-加快响应用户的时间"><a href="#2-加快响应用户的时间" class="headerlink" title="2. 加快响应用户的时间"></a>2. 加快响应用户的时间</h4><p>​        比如我们经常用的迅雷下载,都喜欢多开几个线程去下载,谁都不愿意用一个线程去下载,为什么呢?答案很简单,就是多个线程下载快啊。</p>
+<p>​        我们在做程序开发的时候更应该如此,特别是我们做互联网项目,网页的响应时间若提升1s,如果流量大的话,就能增加不少转换量。做过高性能web前端调优的都知道,要将静态资源地址用两三个子域名去加载,为什么?因为每多一个子域名,浏览器在加载你的页面的时候就会多开几个线程去加载你的页面资源,提升网站的响应速度。多线程,高并发真的是无处不在。</p>
+<h4 id="3-可以使你的代码模块化-异步化-简单化"><a href="#3-可以使你的代码模块化-异步化-简单化" class="headerlink" title="3. 可以使你的代码模块化,异步化,简单化"></a>3. 可以使你的代码模块化,异步化,简单化</h4><p>​        例如我们实现电商系统，下订单和给用户发送短信、邮件就可以进行拆分，将给用户发送短信、邮件这两个步骤独立为单独的模块，并交给其他线程去执行。这样既增加了异步的操作，提升了系统性能，又使程序模块化,清晰化和简单化。</p>
+<p>多线程应用开发的好处还有很多,大家在日后的代码编写过程中可以慢慢体会它的魅力。</p>
+<h3 id="多线程程序需要注意事项"><a href="#多线程程序需要注意事项" class="headerlink" title="多线程程序需要注意事项"></a>多线程程序需要注意事项</h3><h4 id="1-线程之间的安全性"><a href="#1-线程之间的安全性" class="headerlink" title="1. 线程之间的安全性"></a>1. 线程之间的安全性</h4><p>​        从前面的章节中我们都知道,在同一个进程里面的多线程是资源共享的,也就是都可以访问同一个内存地址当中的一个变量。例如:若每个线程中对全局变量、静态变量只有读操作,而无写操作,一般来说,这个全局变量是线程安全的:若有多个线程同时执行写操作,一般都需要考虑线程同步,否则就可能影响线程安全。</p>
+<h4 id="2-线程之间的死锁"><a href="#2-线程之间的死锁" class="headerlink" title="2. 线程之间的死锁"></a>2. 线程之间的死锁</h4><p>​        为了解决线程之间的安全性引入了Java的锁机制,而一不小心就会产生Java线程死锁的多线程问题,因为不同的线程都在等待那些根本不可能被释放的锁,从而导致所有的工作都无法完成。假设有两个线程,分别代表两个饥饿的人,他们必须共享刀叉并轮流吃饭。他们都需要获得两个锁:共享刀和共享叉的锁。</p>
+<p>假如线程A获得了刀,而线程B获得了叉。线程A就会进入阻塞状态来等待获得叉,而线程B则阻塞来等待线程A所拥有的刀。这只是人为设计的例子,但尽管在运行时很难探测到,这类情况却时常发生</p>
+<h4 id="3-线程太多了会将服务器资源耗尽形成死机当机"><a href="#3-线程太多了会将服务器资源耗尽形成死机当机" class="headerlink" title="3. 线程太多了会将服务器资源耗尽形成死机当机"></a>3. 线程太多了会将服务器资源耗尽形成死机当机</h4><p>​    线程数太多有可能造成系统创建大量线程而导致消耗完系统内存以及CPU的“过渡切换”,造成系统的死机,那么我们该如何解决这类问题呢?</p>
+<p>​        某些系统资源是有限的,如文件描述符。多线程程序可能耗尽资源,因为每个线程都可能希望有一个这样的资源。如果线程数相当大,或者某个资源的侯选线程数远远超过了可用的资源数则最好使用资源池。一个最好的示例是数据库连接池。只要线程需要使用一个数据库连接,它就从池中取出一个,使用以后再将它返回池中。资源池也称为资源库。</p>
+<p>多线程应用开发的注意事项很多,希望大家在日后的工作中可以慢慢体会它的危险所在。</p>
+<h2 id="认识Java里的线程"><a href="#认识Java里的线程" class="headerlink" title="认识Java里的线程"></a>认识Java里的线程</h2><h3 id="Java程序天生就是多线程的"><a href="#Java程序天生就是多线程的" class="headerlink" title="Java程序天生就是多线程的"></a>Java程序天生就是多线程的</h3><p>​        一个Java程序从main()方法开始执行，然后按照既定的代码逻辑执行，看似没有其他线程参与，但实际上Java程序天生就是多线程程序，因为执行main()方法的是一个名称为main的线程。</p>
+<ul>
+<li><p>[6] Monitor Ctrl-Break //监控Ctrl-Break中断信号的</p>
+</li>
+<li><p>[5] Attach Listener //内存dump，线程dump，类信息统计，获取系统属性等</p>
+</li>
+<li><p>[4] Signal Dispatcher  // 分发处理发送给JVM信号的线程</p>
+</li>
+<li><p>[3] Finalizer  // 调用对象finalize方法的线程</p>
+</li>
+<li><p>[2] Reference Handler//清除Reference的线程</p>
+</li>
+<li><p>[1] main //main线程，用户程序入口</p>
+</li>
+<li></li>
+</ul>
+<h3 id="线程的启动与中止"><a href="#线程的启动与中止" class="headerlink" title="线程的启动与中止"></a>线程的启动与中止</h3><h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>启动线程的方式有：</p>
+<p>1、X extends Thread;，然后X.start</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//todo 处理业务</span></span><br><span class="line">        System.out.println(<span class="string">"xxxxxxxxxxxxx"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> ThreadTest().start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、X implements  Runnable；然后交给Thread运行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RunableTest</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//todo 处理业务</span></span><br><span class="line">        System.out.println(<span class="string">"xxxxxxxxxxxxx"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        RunableTest runableTest = <span class="keyword">new</span> RunableTest();</span><br><span class="line">        <span class="keyword">new</span> Thread(runableTest).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Thread和Runnable的区别"><a href="#Thread和Runnable的区别" class="headerlink" title="Thread和Runnable的区别"></a>Thread和Runnable的区别</h4><p>​        Thread才是Java里对线程的唯一抽象，<strong>Runnable只是对任务（业务逻辑）的抽象</strong>。Thread可以接受任意一个Runnable的实例并执行。</p>
+<h4 id="中止"><a href="#中止" class="headerlink" title="中止"></a>中止</h4><h5 id="线程自然终止"><a href="#线程自然终止" class="headerlink" title="线程自然终止"></a>线程自然终止</h5><p>要么是run执行完成了，要么是抛出了一个未处理的异常导致线程提前结束。</p>
+<h5 id="stop"><a href="#stop" class="headerlink" title="stop"></a>stop</h5><p>​        暂停、恢复和停止操作对应在线程Thread的API就是<strong>suspend()</strong>、<strong>resume()</strong>和<strong>stop()</strong>。但是这些API是<strong>过期的</strong>，也就是<strong>不建议使用</strong>的。不建议使用的原因主要有：以suspend()方法为例，在调用后，线程不会释放已经占有的资源（比如锁），而是占有着资源进入睡眠状态，这样容易引发死锁问题。同样，stop()方法在终结一个线程时不会保证线程的资源正常释放，通常是没有给予线程完成资源释放工作的机会，因此会导致程序可能工作在不确定状态下。正因为suspend()、resume()和stop()方法带来的副作用，这些方法才被标注为不建议使用的过期方法。</p>
+<h5 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h5><p>​        安全的中止则是其他线程通过调用某个线程A的<strong>interrupt()</strong>方法对其进行中断操作, 中断好比其他线程对该线程打了个招呼，“A，你要中断了”，不代表线程A会立即停止自己的工作，同样的A线程完全可以不理会这种中断请求。因为java里的线程是协作式的，不是抢占式的。线程通过检查自身的中断标志位是否被置为true来进行响应，</p>
+<p>​        线程通过方法<strong>isInterrupted()</strong>来进行判断是否被中断，也可以调用静态方法<strong>Thread.interrupted()</strong>来进行判断当前线程是否被中断，不过Thread.interrupted()会同时将中断标识位改写为false。</p>
+<p>​        如果一个线程处于了阻塞状态（如线程调用了thread.sleep、thread.join、thread.wait等），则在线程在检查中断标示时如果发现中断标示为true，则会在这些阻塞方法调用处抛出InterruptedException异常，并且在抛出异常后会立即将线程的中断标示位清除，即重新设置为false。</p>
+<p>​        不建议自定义一个取消标志位来中止线程的运行。因为run方法里有阻塞调用时会无法很快检测到取消标志，线程必须从阻塞调用返回后，才会检查这个取消标志。这种情况下，使用中断会更好，因为，</p>
+<ol>
+<li><p>一般的阻塞方法，如sleep等本身就支持中断的检查，</p>
+</li>
+<li><p>检查中断位的状态和检查取消标志位没什么区别，用中断位的状态还可以避免声明取消标志位，减少资源的消耗。</p>
+</li>
+</ol>
+<p><strong>注意：处于死锁状态的线程无法被中断</strong></p>
+<p>样例代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RunableTest</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (!Thread.currentThread().isInterrupted()) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            <span class="comment">//todo 处理业务</span></span><br><span class="line">            System.out.println(<span class="string">"xxxxxxxxxxxxx"</span>);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">100</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">10</span>) &#123;</span><br><span class="line">                Thread.currentThread().interrupt();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        RunableTest runableTest = <span class="keyword">new</span> RunableTest();</span><br><span class="line">        <span class="keyword">new</span> Thread(runableTest).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="对Java里的线程再多一点点认识"><a href="#对Java里的线程再多一点点认识" class="headerlink" title="对Java里的线程再多一点点认识"></a>对Java里的线程再多一点点认识</h2><h3 id="深入理解run-和start"><a href="#深入理解run-和start" class="headerlink" title="深入理解run()和start()"></a>深入理解run()和start()</h3><p>​        Thread类是Java里对线程概念的抽象，可以这样理解：我们通过new Thread()其实只是new出一个Thread的实例，还没有操作系统中真正的线程挂起钩来。只有执行了start()方法后，才实现了真正意义上的启动线程。</p>
+<p>​        start()方法让一个线程进入就绪队列等待分配cpu，分到cpu后才调用实现的run()方法，start()方法不能重复调用，如果重复调用会抛出异常。</p>
+<p>​        而run方法是业务逻辑实现的地方，本质上和任意一个类的任意一个成员方法并没有任何区别，可以重复执行，也可以被单独调用。</p>
+<h3 id="其他的线程相关方法"><a href="#其他的线程相关方法" class="headerlink" title="其他的线程相关方法"></a>其他的线程相关方法</h3><p>​        yield()方法：使当前线程让出CPU占有权，但让出的时间是不可设定的。也不会释放锁资源。注意：并不是每个线程都需要这个锁的，而且执行yield( )的线程不一定就会持有锁，我们完全可以在释放锁后再调用yield方法。</p>
+<p>所有执行yield()的线程有可能在进入到就绪状态后会被操作系统再次选中马上又被执行。</p>
+<p>wait()/notify()/notifyAll()：后面会单独讲述</p>
+<h3 id="join方法"><a href="#join方法" class="headerlink" title="join方法"></a>join方法</h3><p>​        把指定的线程加入到当前线程，可以将两个交替执行的线程合并为顺序执行。比如在线程B中调用了线程A的Join()方法，直到线程A执行完毕后，才会继续执行线程B。(此处为常见面试考点)</p>
+<p>看个栗子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Thread thread1 = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">           <span class="keyword">while</span>(!Thread.currentThread().isInterrupted()) &#123;</span><br><span class="line">               <span class="keyword">try</span> &#123;</span><br><span class="line">                   Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">               &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                   e.printStackTrace();</span><br><span class="line">               &#125;</span><br><span class="line">               System.out.println(<span class="string">"11111111111"</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line"></span><br><span class="line">       Thread thread2 = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">           <span class="keyword">while</span>(!Thread.currentThread().isInterrupted()) &#123;</span><br><span class="line">               <span class="keyword">try</span> &#123;</span><br><span class="line">                   Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">               &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                   e.printStackTrace();</span><br><span class="line">               &#125;</span><br><span class="line">               System.out.println(<span class="string">"222222222222"</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">       thread1.start();</span><br><span class="line">       <span class="comment">//在此处join 其他线程会等待thread1 执行完成后在执行thread2</span></span><br><span class="line">       thread1.join();</span><br><span class="line">       thread2.start();</span><br></pre></td></tr></table></figure>
+
+<p>执行结果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br></pre></td></tr></table></figure>
+
+<p>第二种情况</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">     thread1.start();</span><br><span class="line">     thread2.start();</span><br><span class="line">     <span class="comment">//在此处join 因为下面没有等待启动的线程，所以和不加thread1.join();一样，是交替执行的</span></span><br><span class="line">     thread1.join();</span><br></pre></td></tr></table></figure>
+
+<p>执行结果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">222222222222</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">222222222222</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">222222222222</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">222222222222</span></span><br><span class="line"><span class="number">222222222222</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">11111111111</span></span><br><span class="line"><span class="number">222222222222</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="线程的优先级"><a href="#线程的优先级" class="headerlink" title="线程的优先级"></a>线程的优先级</h3><p>​        在Java线程中，通过一个整型成员变量priority来控制优先级，优先级的范围从1~10，在线程构建的时候可以通过setPriority(int)方法来修改优先级，默认优先级是5，优先级高的线程分配时间片的数量要多于优先级低的线程。</p>
+<p>​        设置线程优先级时，针对频繁阻塞（休眠或者I/O操作）的线程需要设置较高优先级，而偏重计算（需要较多CPU时间或者偏运算）的线程则设置较低的优先级，确保处理器不会被独占。在不同的JVM以及操作系统上，线程规划会存在差异，有些操作系统甚至会忽略对线程优先级的设定。</p>
+<h3 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h3><p>​        Daemon（守护）线程是一种支持型线程，因为它主要被用作程序中后台调度以及支持性工作。这意味着，当一个Java虚拟机中不存在<strong>非</strong>Daemon线程的时候，Java虚拟机将会退出。可以通过调用Thread.setDaemon(true)将线程设置为Daemon线程。我们一般用不上，比如垃圾回收线程就是Daemon线程。</p>
+<p>​        Daemon线程被用作完成支持性工作，但是在Java虚拟机退出时Daemon线程中的finally块并不一定会执行。在构建Daemon线程时，不能依靠finally块中的内容来确保执行关闭或清理资源的逻辑。</p>
+<h2 id="线程间的共享和协作"><a href="#线程间的共享和协作" class="headerlink" title="线程间的共享和协作"></a>线程间的共享和协作</h2><h3 id="线程间的共享"><a href="#线程间的共享" class="headerlink" title="线程间的共享"></a>线程间的共享</h3><h4 id="synchronized内置锁"><a href="#synchronized内置锁" class="headerlink" title="synchronized内置锁"></a>synchronized内置锁</h4><p>​        线程开始运行，拥有自己的栈空间，就如同一个脚本一样，按照既定的代码一步一步地执行，直到终止。但是，每个运行中的线程，如果仅仅是孤立地运行，那么没有一点儿价值，或者说价值很少，如果多个线程能够相互配合完成工作，包括数据之间的共享，协同处理事情。这将会带来巨大的价值。</p>
+<p>​        Java支持多个线程同时访问一个对象或者对象的成员变量，关键字synchronized可以修饰方法或者以同步块的形式来进行使用，它主要确保多个线程在同一个时刻，只能有一个线程处于方法或者同步块中，它保证了线程对变量访问的可见性和排他性，又称为内置锁机制。</p>
+<h4 id="对象锁和类锁："><a href="#对象锁和类锁：" class="headerlink" title="对象锁和类锁："></a>对象锁和类锁：</h4><p>对象锁是用于对象实例方法，或者一个对象实例上的，类锁是用于类的静态方法或者一个类的class对象上的。我们知道，类的对象实例可以有很多个，但是每个类只有一个class对象，所以不同对象实例的对象锁是互不干扰的，但是每个类只有一个类锁。</p>
+<p>但是有一点必须注意的是，其实类锁只是一个概念上的东西，并不是真实存在的，类锁其实锁的是每个类的对应的class对象。类锁和对象锁之间也是互不干扰的。</p>
+<h5 id="方法锁"><a href="#方法锁" class="headerlink" title="方法锁"></a>方法锁</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 方法锁 不同的方法可以并行的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RunableTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"test111"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"test222"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"test333"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        RunableTest RunableTest = <span class="keyword">new</span> RunableTest();</span><br><span class="line">        <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                sleep(<span class="number">1</span>);</span><br><span class="line">                RunableTest.test1();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                sleep(<span class="number">1</span>);</span><br><span class="line">                RunableTest.test2();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                sleep(<span class="number">1</span>);</span><br><span class="line">                RunableTest.test3();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sleep</span><span class="params">(<span class="keyword">int</span> sec)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(sec * <span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="对象锁"><a href="#对象锁" class="headerlink" title="对象锁"></a>对象锁</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  对象锁 用一个对象锁的话 先获取锁在执行 </span></span><br><span class="line"><span class="comment"> *   如果是多个对象可以并行的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Object lock = <span class="keyword">new</span> Object();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (lock) &#123;</span><br><span class="line">            sleep(<span class="number">1</span>);</span><br><span class="line">            System.out.println(<span class="string">"test111"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (lock) &#123;</span><br><span class="line">            sleep(<span class="number">1</span>);</span><br><span class="line">            System.out.println(<span class="string">"test222"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (lock) &#123;</span><br><span class="line">            sleep(<span class="number">1</span>);</span><br><span class="line">            System.out.println(<span class="string">"test333"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="类锁"><a href="#类锁" class="headerlink" title="类锁"></a>类锁</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *类锁 用一个对象锁的话 先获取锁在执行</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (RunableTest.class) &#123;</span><br><span class="line">            sleep(<span class="number">1</span>);</span><br><span class="line">            System.out.println(<span class="string">"test111"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (RunableTest.class) &#123;</span><br><span class="line">            sleep(<span class="number">1</span>);</span><br><span class="line">            System.out.println(<span class="string">"test222"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (RunableTest.class) &#123;</span><br><span class="line">            sleep(<span class="number">1</span>);</span><br><span class="line">            System.out.println(<span class="string">"test333"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="系统加密服务-04.html" class="next-post btn btn-default" title='系统加密服务-04'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">系统加密服务-04</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: true,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程概述"><span class="toc-text">多线程概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础概念"><span class="toc-text">基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进程和线程"><span class="toc-text">进程和线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU核心数和线程数的关系"><span class="toc-text">CPU核心数和线程数的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU时间片轮转机制"><span class="toc-text">CPU时间片轮转机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#澄清并行和并发"><span class="toc-text">澄清并行和并发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高并发编程的意义、好处和注意事项"><span class="toc-text">高并发编程的意义、好处和注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-充分利用CPU的资源"><span class="toc-text">1. 充分利用CPU的资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-加快响应用户的时间"><span class="toc-text">2. 加快响应用户的时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-可以使你的代码模块化-异步化-简单化"><span class="toc-text">3. 可以使你的代码模块化,异步化,简单化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程程序需要注意事项"><span class="toc-text">多线程程序需要注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-线程之间的安全性"><span class="toc-text">1. 线程之间的安全性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-线程之间的死锁"><span class="toc-text">2. 线程之间的死锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-线程太多了会将服务器资源耗尽形成死机当机"><span class="toc-text">3. 线程太多了会将服务器资源耗尽形成死机当机</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#认识Java里的线程"><span class="toc-text">认识Java里的线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java程序天生就是多线程的"><span class="toc-text">Java程序天生就是多线程的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程的启动与中止"><span class="toc-text">线程的启动与中止</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#启动"><span class="toc-text">启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Thread和Runnable的区别"><span class="toc-text">Thread和Runnable的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#中止"><span class="toc-text">中止</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#线程自然终止"><span class="toc-text">线程自然终止</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#stop"><span class="toc-text">stop</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#中断"><span class="toc-text">中断</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对Java里的线程再多一点点认识"><span class="toc-text">对Java里的线程再多一点点认识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#深入理解run-和start"><span class="toc-text">深入理解run()和start()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他的线程相关方法"><span class="toc-text">其他的线程相关方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#join方法"><span class="toc-text">join方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程的优先级"><span class="toc-text">线程的优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#守护线程"><span class="toc-text">守护线程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程间的共享和协作"><span class="toc-text">线程间的共享和协作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线程间的共享"><span class="toc-text">线程间的共享</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#synchronized内置锁"><span class="toc-text">synchronized内置锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对象锁和类锁："><span class="toc-text">对象锁和类锁：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#方法锁"><span class="toc-text">方法锁</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#对象锁"><span class="toc-text">对象锁</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#类锁"><span class="toc-text">类锁</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+        访问量:
+        <strong id="busuanzi_value_site_pv">
+            <i class="fa fa-spinner fa-spin"></i>
+        </strong>
+        &nbsp; | &nbsp;
+        访客数:
+        <strong id="busuanzi_value_site_uv">
+            <i class="fa fa-spinner fa-spin"></i>
+        </strong>
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
