@@ -2,23 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B-ThreadLocal-01.html</loc>
+    <loc>http://www.baiyp.ren/java%E6%B5%81%E5%BC%8F%E8%AE%A1%E7%AE%97-01.html</loc>
     
-    <lastmod>2019-08-04T09:12:52.432Z</lastmod>
+    <lastmod>2019-08-04T12:52:23.315Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/%E4%BD%BF%E7%94%A8lambda-stream%E5%BC%80%E5%8F%91.html</loc>
+    
+    <lastmod>2019-08-04T10:53:43.214Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80-05.html</loc>
     
-    <lastmod>2019-08-04T09:12:45.012Z</lastmod>
+    <lastmod>2019-08-04T09:16:03.796Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80-04.html</loc>
     
-    <lastmod>2019-08-04T09:10:24.315Z</lastmod>
+    <lastmod>2019-08-04T09:15:49.443Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B-ThreadLocal-01.html</loc>
+    
+    <lastmod>2019-08-04T09:12:52.432Z</lastmod>
     
   </url>
   
