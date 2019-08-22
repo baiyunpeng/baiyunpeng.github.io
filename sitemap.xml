@@ -2,331 +2,352 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.baiyp.ren/JAVA%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0.html</loc>
-    
-    <lastmod>2019-08-21T03:52:54.374Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/JAVA%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%AE%9E%E7%8E%B002.html</loc>
-    
-    <lastmod>2019-08-21T03:51:59.415Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/JAVA%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%AE%9E%E7%8E%B001.html</loc>
-    
-    <lastmod>2019-08-21T03:51:49.431Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B-ThreadLocal-02.html</loc>
-    
-    <lastmod>2019-08-18T10:26:17.391Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A108.html</loc>
-    
-    <lastmod>2019-08-18T09:55:16.439Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A107.html</loc>
-    
-    <lastmod>2019-08-18T09:55:07.023Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A106.html</loc>
-    
-    <lastmod>2019-08-18T09:54:56.429Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A105.html</loc>
-    
-    <lastmod>2019-08-18T09:54:49.552Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A104.html</loc>
-    
-    <lastmod>2019-08-18T09:54:41.970Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A103.html</loc>
-    
-    <lastmod>2019-08-18T09:54:33.484Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A102.html</loc>
-    
-    <lastmod>2019-08-18T09:54:25.213Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A101.html</loc>
-    
-    <lastmod>2019-08-18T09:54:12.991Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/ThreadLocal%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%9001.html</loc>
-    
-    <lastmod>2019-08-18T02:50:44.714Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E4%B8%AD%E7%9A%84AQS-01.html</loc>
-    
-    <lastmod>2019-08-17T11:47:55.074Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E4%B8%AD%E7%9A%84AQS-02.html</loc>
-    
-    <lastmod>2019-08-17T11:47:43.209Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E4%B8%AD%E7%9A%84AQS-03.html</loc>
-    
-    <lastmod>2019-08-17T11:47:29.124Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/ThreadLocal%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%9002.html</loc>
-    
-    <lastmod>2019-08-17T06:56:44.843Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/JAVA%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html</loc>
-    
-    <lastmod>2019-08-16T03:44:54.827Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/git%E7%94%9F%E6%88%90%E5%B9%B6%E6%B7%BB%E5%8A%A0SSH-key.html</loc>
-    
-    <lastmod>2019-08-15T07:16:47.737Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/CLH%E9%98%9F%E5%88%97%E9%94%81.html</loc>
-    
-    <lastmod>2019-08-15T07:14:17.144Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/JsonValidator%E5%B7%A5%E5%85%B7%E7%B1%BB.html</loc>
-    
-    <lastmod>2019-08-15T07:12:23.591Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/HttpClient%E5%B7%A5%E5%85%B7%E7%B1%BB.html</loc>
-    
-    <lastmod>2019-08-15T07:10:42.960Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/%E5%8F%98%E5%BE%97%E7%89%9B%E9%80%BC%E7%9A%84%E6%96%B9%E6%B3%95.html</loc>
-    
-    <lastmod>2019-08-15T07:09:52.490Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/MYBATIS%E7%83%AD%E9%83%A8%E7%BD%B2.html</loc>
-    
-    <lastmod>2019-08-15T02:20:12.408Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9CCAS.html</loc>
-    
-    <lastmod>2019-08-11T09:19:58.211Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB-01.html</loc>
-    
-    <lastmod>2019-08-11T09:19:21.627Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB-06.html</loc>
-    
-    <lastmod>2019-08-11T09:19:14.144Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB-05.html</loc>
-    
-    <lastmod>2019-08-11T09:19:07.506Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB-04.html</loc>
-    
-    <lastmod>2019-08-11T09:19:00.765Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB-03.html</loc>
-    
-    <lastmod>2019-08-11T09:18:53.357Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB-02.html</loc>
-    
-    <lastmod>2019-08-11T09:18:23.521Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E4%B8%AD%E7%9A%84%E8%AF%BB%E5%86%99%E9%94%81.html</loc>
-    
-    <lastmod>2019-08-11T09:18:04.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E4%B8%AD%E7%9A%84%E6%98%BE%E7%A4%BA%E9%94%81.html</loc>
-    
-    <lastmod>2019-08-11T09:17:51.085Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/about.html</loc>
-    
-    <lastmod>2019-08-07T00:39:34.814Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E6%B5%81%E5%BC%8F%E8%AE%A1%E7%AE%97Stream%E8%AF%A6%E8%A7%A3.html</loc>
-    
-    <lastmod>2019-08-06T00:43:10.127Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/%E7%94%A8lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%AE%80%E5%8C%96%E5%BC%80%E5%8F%91.html</loc>
-    
-    <lastmod>2019-08-04T10:53:43.214Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80-05.html</loc>
     
-    <lastmod>2019-08-04T09:16:03.796Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80-04.html</loc>
-    
-    <lastmod>2019-08-04T09:15:49.443Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B-ThreadLocal-01.html</loc>
-    
-    <lastmod>2019-08-04T09:12:52.432Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80-02.html</loc>
-    
-    <lastmod>2019-08-04T08:59:47.485Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80-03.html</loc>
-    
-    <lastmod>2019-08-04T08:58:31.984Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80-01.html</loc>
-    
-    <lastmod>2019-08-04T08:33:32.021Z</lastmod>
+    <lastmod>2019-08-22T05:55:02.066Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.baiyp.ren/%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%AF%86%E6%9C%8D%E5%8A%A1-04.html</loc>
     
-    <lastmod>2019-08-03T22:17:40.249Z</lastmod>
+    <lastmod>2019-08-22T05:53:56.265Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.baiyp.ren/%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%AF%86%E6%9C%8D%E5%8A%A1-03.html</loc>
     
-    <lastmod>2019-08-03T22:17:30.987Z</lastmod>
+    <lastmod>2019-08-22T05:53:47.331Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.baiyp.ren/%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%AF%86%E6%9C%8D%E5%8A%A1-02.html</loc>
     
-    <lastmod>2019-08-03T22:17:21.317Z</lastmod>
+    <lastmod>2019-08-22T05:53:35.408Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.baiyp.ren/%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%AF%86%E6%9C%8D%E5%8A%A1-01.html</loc>
+    <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80-02.html</loc>
     
-    <lastmod>2019-08-03T22:17:10.248Z</lastmod>
+    <lastmod>2019-08-22T05:02:38.325Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/JsonValidator%E5%B7%A5%E5%85%B7%E7%B1%BB.html</loc>
+    
+    <lastmod>2019-08-22T05:02:13.646Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/HttpClient%E5%B7%A5%E5%85%B7%E7%B1%BB.html</loc>
+    
+    <lastmod>2019-08-22T05:02:04.324Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/categories/index.html</loc>
+    
+    <lastmod>2019-08-22T02:23:57.116Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/tags/index.html</loc>
+    
+    <lastmod>2019-08-22T02:23:47.798Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/JAVA%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0.html</loc>
+    
+    <lastmod>2019-08-22T02:10:10.403Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/JAVA%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%AE%9E%E7%8E%B002.html</loc>
+    
+    <lastmod>2019-08-22T02:09:59.787Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/JAVA%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%AE%9E%E7%8E%B001.html</loc>
+    
+    <lastmod>2019-08-22T02:09:50.862Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A108.html</loc>
+    
+    <lastmod>2019-08-22T02:09:38.642Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A107.html</loc>
+    
+    <lastmod>2019-08-22T02:09:30.959Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A106.html</loc>
+    
+    <lastmod>2019-08-22T02:09:23.164Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A105.html</loc>
+    
+    <lastmod>2019-08-22T02:09:14.731Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A104.html</loc>
+    
+    <lastmod>2019-08-22T02:09:06.246Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A103.html</loc>
+    
+    <lastmod>2019-08-22T02:08:58.320Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A101.html</loc>
+    
+    <lastmod>2019-08-22T02:08:46.182Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/JAVA%E4%B8%AD%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A102.html</loc>
+    
+    <lastmod>2019-08-22T02:08:35.193Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/ThreadLocal%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%9002.html</loc>
+    
+    <lastmod>2019-08-22T02:08:13.186Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/ThreadLocal%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%9001.html</loc>
+    
+    <lastmod>2019-08-22T02:08:03.643Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/JAVA%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html</loc>
+    
+    <lastmod>2019-08-22T02:07:51.270Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E4%B8%AD%E7%9A%84%E6%98%BE%E7%A4%BA%E9%94%81.html</loc>
+    
+    <lastmod>2019-08-22T02:07:25.590Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E4%B8%AD%E7%9A%84%E8%AF%BB%E5%86%99%E9%94%81.html</loc>
+    
+    <lastmod>2019-08-22T02:06:51.109Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E4%B8%AD%E7%9A%84AQS-03.html</loc>
+    
+    <lastmod>2019-08-22T02:06:15.698Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E4%B8%AD%E7%9A%84AQS-02.html</loc>
+    
+    <lastmod>2019-08-22T02:06:07.777Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E4%B8%AD%E7%9A%84AQS-01.html</loc>
+    
+    <lastmod>2019-08-22T02:06:00.069Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9CCAS.html</loc>
+    
+    <lastmod>2019-08-22T02:05:21.307Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/CLH%E9%98%9F%E5%88%97%E9%94%81.html</loc>
+    
+    <lastmod>2019-08-22T02:04:44.403Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB-06.html</loc>
+    
+    <lastmod>2019-08-22T02:04:25.048Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB-05.html</loc>
+    
+    <lastmod>2019-08-22T02:04:17.438Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB-04.html</loc>
+    
+    <lastmod>2019-08-22T02:04:08.896Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB-03.html</loc>
+    
+    <lastmod>2019-08-22T02:04:00.893Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB-02.html</loc>
+    
+    <lastmod>2019-08-22T02:03:48.592Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/%E5%8F%98%E5%BE%97%E7%89%9B%E9%80%BC%E7%9A%84%E6%96%B9%E6%B3%95.html</loc>
+    
+    <lastmod>2019-08-22T02:03:39.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E5%B9%B6%E5%8F%91%E5%B7%A5%E5%85%B7%E7%B1%BB-01.html</loc>
+    
+    <lastmod>2019-08-22T02:03:22.543Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/git%E7%94%9F%E6%88%90%E5%B9%B6%E6%B7%BB%E5%8A%A0SSH-key.html</loc>
+    
+    <lastmod>2019-08-22T02:03:11.902Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/%E7%94%A8lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%AE%80%E5%8C%96%E5%BC%80%E5%8F%91.html</loc>
+    
+    <lastmod>2019-08-22T02:03:01.599Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E6%B5%81%E5%BC%8F%E8%AE%A1%E7%AE%97Stream%E8%AF%A6%E8%A7%A3.html</loc>
+    
+    <lastmod>2019-08-22T02:02:29.923Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80-04.html</loc>
+    
+    <lastmod>2019-08-22T02:02:03.497Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80-01.html</loc>
+    
+    <lastmod>2019-08-22T02:01:45.258Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.baiyp.ren/%E6%90%BA%E7%A8%8BApollo-%E9%98%BF%E6%B3%A2%E7%BD%97-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E4%BB%A5%E5%8F%8Ajava%E6%95%B4%E5%90%88.html</loc>
     
-    <lastmod>2019-08-03T22:16:46.276Z</lastmod>
+    <lastmod>2019-08-22T02:00:47.571Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80-03.html</loc>
+    
+    <lastmod>2019-08-22T01:59:23.559Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B-ThreadLocal-02.html</loc>
+    
+    <lastmod>2019-08-22T01:58:42.870Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/java%E5%A4%9A%E7%BA%BF%E7%A8%8B-ThreadLocal-01.html</loc>
+    
+    <lastmod>2019-08-22T01:58:14.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/MYBATIS%E7%83%AD%E9%83%A8%E7%BD%B2.html</loc>
+    
+    <lastmod>2019-08-22T01:57:00.236Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/%E7%B3%BB%E7%BB%9F%E5%8A%A0%E5%AF%86%E6%9C%8D%E5%8A%A1-01.html</loc>
+    
+    <lastmod>2019-08-22T01:56:50.871Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/friends.html</loc>
+    
+    <lastmod>2019-08-22T01:42:35.157Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.baiyp.ren/about.html</loc>
+    
+    <lastmod>2019-08-22T01:34:10.005Z</lastmod>
     
   </url>
   
